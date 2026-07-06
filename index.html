@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpenAppart 3D - Agenceur d'intérieur libre</title>
-    <link rel="stylesheet" href="style.css">
+    <title>OpenAppart 3D | Studio d'agencement libre</title>
+    <link rel="stylesheet" href="css/style.css">
     <script type="importmap">
         {
             "imports": {
@@ -15,58 +15,94 @@
     </script>
 </head>
 <body>
-
     <aside class="sidebar">
-        <header>
-            <h1>📐 OpenAppart 3D</h1>
-            <p>Concepteur libre 1m = 1 unité 3D</p>
+        <header class="brand">
+            <div class="brand-logo">🛋️</div>
+            <div>
+                <h1>OpenAppart <span>3D</span></h1>
+                <p>Agencement & conception 100% libre</p>
+            </div>
         </header>
 
-        <section class="panel-section">
-            <h2>1. Dimensions de la pièce</h2>
-            <div class="input-group">
-                <label for="room-width">Largeur (m) : <span id="val-width">5</span>m</label>
-                <input type="range" id="room-width" min="2" max="10" step="0.5" value="5">
+        <section class="control-panel">
+            <span class="panel-tag">01. Dimensions (mètres)</span>
+            <div class="slider-group">
+                <div class="slider-label">
+                    <span>Largeur</span>
+                    <strong id="label-width">5.0 m</strong>
+                </div>
+                <input type="range" id="input-width" min="2" max="10" step="0.5" value="5">
             </div>
-            <div class="input-group">
-                <label for="room-length">Longueur (m) : <span id="val-length">4</span>m</label>
-                <input type="range" id="room-length" min="2" max="10" step="0.5" value="4">
-            </div>
-        </section>
-
-        <section class="panel-section">
-            <h2>2. Mobilier (Échelle réelle)</h2>
-            <div class="button-grid">
-                <button class="btn-item" data-type="bed">🛏️ Lit Double (1.4x1.9m)</button>
-                <button class="btn-item" data-type="desk">💻 Bureau (1.2x0.6m)</button>
-                <button class="btn-item" data-type="sofa">🛋️ Canapé (2.0x0.9m)</button>
-                <button class="btn-item" data-type="table">🍽️ Table (1.2x0.8m)</button>
+            <div class="slider-group">
+                <div class="slider-label">
+                    <span>Longueur</span>
+                    <strong id="label-length">4.0 m</strong>
+                </div>
+                <input type="range" id="input-length" min="2" max="10" step="0.5" value="4">
             </div>
         </section>
 
-        <section class="panel-section">
-            <h2>3. Technique & Ouvertures</h2>
-            <div class="button-grid">
-                <button class="btn-item tech" data-type="plug">⚡ Prise élec.</button>
-                <button class="btn-item tech" data-type="water">💧 Arrivée d'eau</button>
-                <button class="btn-item tech" data-type="window">🔲 Fenêtre (1.2m)</button>
-                <button class="btn-item tech" data-type="door">🚪 Porte (0.9m)</button>
+        <section class="control-panel">
+            <span class="panel-tag">02. Mobilier essentiel</span>
+            <div class="grid-2">
+                <button class="btn-catalog" data-item="bed">
+                    <span class="icon">🛏️</span>
+                    <span class="text">Lit Double</span>
+                </button>
+                <button class="btn-catalog" data-item="desk">
+                    <span class="icon">💻</span>
+                    <span class="text">Bureau</span>
+                </button>
+                <button class="btn-catalog" data-item="sofa">
+                    <span class="icon">🛋️</span>
+                    <span class="text">Canapé</span>
+                </button>
+                <button class="btn-catalog" data-item="table">
+                    <span class="icon">🍽️</span>
+                    <span class="text">Table</span>
+                </button>
             </div>
         </section>
 
-        <section class="panel-section actions">
-            <h2>4. Données du plan</h2>
-            <button id="btn-export" class="btn-primary">💾 Exporter le plan (JSON)</button>
-            <button id="btn-clear" class="btn-danger">🗑️ Tout effacer</button>
+        <section class="control-panel">
+            <span class="panel-tag">03. Technique & Ouvertures</span>
+            <div class="grid-2">
+                <button class="btn-catalog tech" data-item="plug">
+                    <span class="icon">⚡</span>
+                    <span class="text">Prise élec.</span>
+                </button>
+                <button class="btn-catalog tech" data-item="water">
+                    <span class="icon">💧</span>
+                    <span class="text">Arrivée eau</span>
+                </button>
+                <button class="btn-catalog tech" data-item="window">
+                    <span class="icon">🔲</span>
+                    <span class="text">Fenêtre</span>
+                </button>
+                <button class="btn-catalog tech" data-item="door">
+                    <span class="icon">🚪</span>
+                    <span class="text">Porte</span>
+                </button>
+            </div>
         </section>
+
+        <footer class="sidebar-actions">
+            <button id="btn-export" class="btn-action primary">💾 Exporter le plan JSON</button>
+            <button id="btn-clear" class="btn-action danger">🗑️ Réinitialiser</button>
+        </footer>
     </aside>
 
     <main id="viewport">
-        <div id="instructions">
-            💡 <strong>Clic gauche + Drag :</strong> Déplacer un meuble | <strong>Clic droit + Drag :</strong> Tourner la caméra | <strong>Molette :</strong> Zoom
+        <div class="hud-top">
+            <div class="badge">Espace de travail 3D</div>
+            <div class="shortcuts">
+                <span><b>Clic gauche</b> Déplacer</span>
+                <span><b>Touche R</b> Pivot 45°</span>
+                <span><b>Clic droit</b> Orbite</span>
+            </div>
         </div>
     </main>
 
-    <script type="module" src="app.js"></script>
+    <script type="module" src="js/app.js"></script>
 </body>
 </html>
