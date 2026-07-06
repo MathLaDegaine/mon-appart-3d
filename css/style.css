@@ -1,0 +1,241 @@
+:root {
+    --bg-main: #0b0d10;
+    --bg-sidebar: #13161c;
+    --bg-card: #1b1f27;
+    --accent: #10b981;
+    --accent-hover: #059669;
+    --tech-accent: #38bdf8;
+    --danger: #ef4444;
+    --text-main: #f3f4f6;
+    --text-muted: #9ca3af;
+    --border: #262c36;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    user-select: none;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    overflow: hidden;
+}
+
+.sidebar {
+    width: 360px;
+    background: var(--bg-sidebar);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1.25rem;
+    overflow-y: auto;
+    z-index: 10;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding-bottom: 0.5rem;
+}
+
+.brand-logo {
+    font-size: 1.8rem;
+    background: var(--bg-card);
+    padding: 0.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+.brand h1 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.brand h1 span {
+    color: var(--accent);
+}
+
+.brand p {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+.control-panel {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.panel-tag {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+}
+
+.slider-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.slider-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+}
+
+.slider-label strong {
+    color: var(--accent);
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 6px;
+    background: #2d3441;
+    border-radius: 3px;
+    outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--accent);
+    cursor: pointer;
+    transition: transform 0.15s;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.15);
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+}
+
+.btn-catalog {
+    background: #232833;
+    border: 1px solid var(--border);
+    color: var(--text-main);
+    padding: 0.75rem 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    transition: all 0.2s ease;
+}
+
+.btn-catalog .icon {
+    font-size: 1.4rem;
+}
+
+.btn-catalog .text {
+    font-size: 0.78rem;
+    font-weight: 500;
+}
+
+.btn-catalog:hover {
+    background: #2c3340;
+    border-color: #434c5e;
+    transform: translateY(-2px);
+}
+
+.btn-catalog.tech {
+    border-top: 2px solid var(--tech-accent);
+}
+
+.sidebar-actions {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.btn-action {
+    width: 100%;
+    padding: 0.85rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btn-action.primary {
+    background: var(--accent);
+    color: #000;
+}
+
+.btn-action.danger {
+    background: rgba(239, 68, 68, 0.15);
+    color: var(--danger);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.btn-action:hover {
+    opacity: 0.88;
+}
+
+#viewport {
+    flex-grow: 1;
+    position: relative;
+}
+
+.hud-top {
+    position: absolute;
+    top: 1.25rem;
+    left: 1.25rem;
+    right: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: none;
+}
+
+.badge {
+    background: rgba(19, 22, 28, 0.8);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--border);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.shortcuts {
+    display: flex;
+    gap: 1rem;
+    background: rgba(19, 22, 28, 0.8);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--border);
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+}
+
+.shortcuts b {
+    color: var(--accent);
+    margin-right: 0.3rem;
+}
